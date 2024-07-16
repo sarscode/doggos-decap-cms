@@ -1,0 +1,17 @@
+local_backend: true # Switch this to false on prod.
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+media_folder: public/img
+public_folder: img
+collections:
+  - name: "Dogs"
+    label: "Dogs"
+    folder: "src/content/dogs"
+    create: true
+    slug: "{{title}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Published Date", name: "published", widget: "datetime" }
+      - { label: "Body", name: "body", widget: "markdown" }
